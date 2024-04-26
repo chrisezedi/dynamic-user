@@ -16,5 +16,13 @@
     </mat-card>
     }
   </main>
-
+  <footer>
+    <mat-paginator
+      (page)="setPage($event)"
+      [length]="pagination().length"
+      [pageSize]="pagination().pageSize"
+      aria-label="Select page"
+    >
+    </mat-paginator>
+  </footer>
 </section>

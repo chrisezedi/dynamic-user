@@ -9,8 +9,8 @@ export class UserService {
   private baseUrl = "https://reqres.in/api";
   constructor(private http:HttpClient) { }
 
-  getUsers(){
-    const params = new HttpParams().set('page', '1');
+  getUsers(page:number){
+    const params = new HttpParams().set('page', page);
     return this.http.get<UserResponsePayload>(`${this.baseUrl}/users`,{params});
   }
 }
