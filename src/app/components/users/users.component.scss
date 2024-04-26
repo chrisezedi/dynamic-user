@@ -1,0 +1,29 @@
+section{
+  height: 100%;
+  overflow-y: scroll;
+  header{
+    h1{
+      text-align: center;
+    }
+  }
+
+  main{
+    mat-card{
+      margin-bottom: 20px;
+      mat-card-content{
+        display: flex;
+        .info{
+          margin-left: 30px;
+          margin-top: 10px;
+          p{
+            &:first-child{
+              font-size: 16px;
+              font-weight:600;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
