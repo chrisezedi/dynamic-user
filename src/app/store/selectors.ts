@@ -17,3 +17,8 @@ export const selectPagination = createSelector(
   selectFeature,
   (state) => state.pagination
 );
+
+export const selectUser = createSelector(
+  selectFeature,
+  (state) => state.user
+);

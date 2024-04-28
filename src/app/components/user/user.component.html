@@ -1,1 +1,24 @@
-<p>user works!</p>
+<ng-container *ngIf="data$ | async as data">
+
+  <header>
+    <div class="example-button-row">
+      <div class="example-flex-container">
+        <div class="example-button-container">
+          <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon" routerLink="/users">
+            <mat-icon>arrow_back</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <mat-card>
+    <mat-card-content>
+      <img [src]="data.user?.avatar" alt="avatar" />
+      <div class="info">
+        <p>{{ data.user?.first_name + " " + data.user?.last_name }}</p>
+        <p>{{ data.user?.email }}</p>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</ng-container>

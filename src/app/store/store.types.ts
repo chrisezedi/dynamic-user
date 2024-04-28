@@ -1,4 +1,4 @@
-import { User } from "../types/user";
+import { User, UserDetail } from "../types/user";
 
 export type UsersState = {
   isFetching:boolean;
@@ -7,4 +7,5 @@ export type UsersState = {
     length:number;
     size:number;
   }
+  user:UserDetail | null | undefined;
 }

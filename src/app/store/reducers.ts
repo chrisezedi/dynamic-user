@@ -8,14 +8,17 @@ const initialState:UsersState = {
   pagination:{
     length:0,
     size:0
-  }
+  },
+  user:undefined
 }
 
 const usersFeature = createFeature({
   name:"users",
   reducer:createReducer(initialState,
     on(usersActions.getUsers,(state)=>({...state,isFetching:true})),
-    on(usersActions.getUsersSuccess,(state,action)=>({...state,isFetching:false,users:action.data,pagination:{length:action.total,size:action.per_page}}))
+    on(usersActions.getUsersSuccess,(state,action)=>({...state,isFetching:false,users:action.data,pagination:{length:action.total,size:action.per_page}})),
+    on(usersActions.getUserDetail,(state)=>({...state,isFetching:true})),
+    on(usersActions.getUserDetailSuccess,(state,action)=>({...state,isFetching:false,user:action.data}))
   )
 })
 
@@ -24,5 +27,6 @@ export const {
   reducer:usersReducer,
   selectIsFetching,
   selectUsers,
-  selectPagination
+  selectPagination,
+  selectUser
 } = usersFeature

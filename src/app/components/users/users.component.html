@@ -6,12 +6,11 @@
 
     <main>
       @for (user of data.users; track $index) {
-      <mat-card>
+      <mat-card [routerLink]="['/users',user.id]"  >
         <mat-card-content>
           <img [src]="user.avatar" alt="avatar" />
           <div class="info">
             <p>{{ user.first_name + " " + user.last_name }}</p>
-            <p>{{ user.email }}</p>
           </div>
         </mat-card-content>
       </mat-card>

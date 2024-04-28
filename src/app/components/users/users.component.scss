@@ -10,16 +10,16 @@ section{
   main{
     mat-card{
       margin-bottom: 20px;
+      cursor: pointer;
       mat-card-content{
         display: flex;
+        align-items: center;
         .info{
           margin-left: 30px;
           margin-top: 10px;
           p{
-            &:first-child{
               font-size: 16px;
               font-weight:600;
-            }
           }
         }
       }
