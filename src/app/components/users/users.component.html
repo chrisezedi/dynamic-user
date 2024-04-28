@@ -1,28 +1,30 @@
-<section>
-  <header>
-    <h1>Users</h1>
-  </header>
+<ng-container *ngIf="data$ | async as data">
+  <section>
+    <header>
+      <h1>Users</h1>
+    </header>
 
-  <main>
-    @for (user of users(); track $index) {
-    <mat-card>
-      <mat-card-content>
-        <img [src]="user.avatar" alt="avatar" />
-        <div class="info">
-          <p>{{ user.first_name + " " + user.last_name }}</p>
-          <p>{{ user.email }}</p>
-        </div>
-      </mat-card-content>
-    </mat-card>
-    }
-  </main>
-  <footer>
-    <mat-paginator
-      (page)="setPage($event)"
-      [length]="pagination().length"
-      [pageSize]="pagination().pageSize"
-      aria-label="Select page"
-    >
-    </mat-paginator>
-  </footer>
-</section>
+    <main>
+      @for (user of data.users; track $index) {
+      <mat-card>
+        <mat-card-content>
+          <img [src]="user.avatar" alt="avatar" />
+          <div class="info">
+            <p>{{ user.first_name + " " + user.last_name }}</p>
+            <p>{{ user.email }}</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+      }
+    </main>
+    <footer>
+      <mat-paginator
+        (page)="setPage($event)"
+        [length]="data.pagination.length"
+        [pageSize]="data.pagination.size"
+        aria-label="Select page"
+      >
+      </mat-paginator>
+    </footer>
+  </section>
+</ng-container>

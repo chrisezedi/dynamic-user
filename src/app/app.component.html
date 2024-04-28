@@ -1,10 +1,15 @@
-<header>
-  <h1>Dynamic User</h1>
-</header>
-<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+<ng-container *ngIf="data$ | async as data">
+  <header>
+    <h1>Dynamic User</h1>
+  </header>
+  @if (data.isFetching) {
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  }
 
-<main>
-  <section>
-    <app-users/>
-  </section>
-</main>
+  <main>
+    <section>
+      <app-users/>
+    </section>
+  </main>
+</ng-container>
+
